@@ -1,9 +1,9 @@
 {
   "name": "model-attributes",
   "version": "0.0.0-semantic-release",
-  "description": "",
-  "keywords": [],
-  "main": "lib/attributes.js",
+  "description": "attribut meta description",
+  "keywords": ["meta", "attribute", "model"],
+  "main": "attributes.js",
   "scripts": {
     "cover": "node ./node_modules/istanbul/lib/cli.js cover --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --R spec --U exports tests",
     "doc": "jsdoc lib/*.js",
@@ -26,19 +26,16 @@
     "mocha": "^2.5.3",
     "semantic-release": "6.3.0"
   },
-  "contributors": [
-    {
-      "name": "Torsten Link",
-      "email": "torstenlink@gmx.de"
-    },
-    {
-      "name": "Markus Felten",
-      "email": "markus.felten@gmx.de"
-    }
-  ],
+  "contributors": [{
+    "name": "Torsten Link",
+    "email": "torstenlink@gmx.de"
+  }, {
+    "name": "Markus Felten",
+    "email": "markus.felten@gmx.de"
+  }],
   "license": "BSD-2-Clause",
   "engines": {
-    "node": ">=6"
+    "node": ">=6.2.1"
   },
   "config": {
     "commitizen": {
