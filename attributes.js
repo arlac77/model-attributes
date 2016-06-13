@@ -33,5 +33,12 @@ function setAttributes(dest, atts, src = {}, cb = (ca, path, value) => {}, prefi
 module.exports.setAttributes = setAttributes;
 
 module.exports.getAttribute = function (object, atts, path) {
+	const ca = atts[path];
+	if (ca) {
+		if (ca.getter) {
+			return ca.getter.call(object, ca);
+		}
+	}
+
 	return object[path];
 };
