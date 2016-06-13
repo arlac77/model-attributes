@@ -1,7 +1,7 @@
 {
   "name": "model-attributes",
   "version": "0.0.0-semantic-release",
-  "description": "attribut meta description",
+  "description": "attribute meta description",
   "keywords": ["meta", "attribute", "model"],
   "main": "attributes.js",
   "scripts": {

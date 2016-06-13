@@ -1,7 +1,8 @@
 model-attributes
 ==========
+attribute meta description
 
-[![npm](https://img.shields.io/npm/v/{{name}}.svg)](https://www.npmjs.com/package/{{name}})
+[![npm](https://img.shields.io/npm/v/model-attributes.svg)](https://www.npmjs.com/package/model-attributes)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/arlac77/model-attributes)
 [![Build Status](https://secure.travis-ci.org/arlac77/model-attributes.png)](http://travis-ci.org/arlac77/model-attributes)
 [![bithound](https://www.bithound.io/github/arlac77/model-attributes/badges/score.svg)](https://www.bithound.io/github/arlac77/model-attributes)
