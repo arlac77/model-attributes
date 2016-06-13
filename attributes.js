@@ -2,7 +2,7 @@
 'use strict';
 
 
-function setAttributes(dest, atts, src = {}, prefix = '', cb = (ca, path, value) => {}) {
+function setAttributes(dest, atts, src = {}, cb = (ca, path, value) => {}, prefix = '') {
 	Object.keys(atts).forEach(name => {
 		const ca = atts[name];
 		ca.name = name;
@@ -11,7 +11,7 @@ function setAttributes(dest, atts, src = {}, prefix = '', cb = (ca, path, value)
 			if (dest[name] === undefined) {
 				dest[name] = {};
 			}
-			setAttributes(dest[name], ca.attributes, src[name], prefix + name + '/', cb);
+			setAttributes(dest[name], ca.attributes, src[name], cb, prefix + name + '/');
 			return;
 		}
 
