@@ -42,3 +42,16 @@ module.exports.getAttribute = function (object, atts, path) {
 
 	return object[path];
 };
+
+/*
+'duration' : {
+	description: 'time duration in seconds',
+
+	parse(value) {
+		return value;
+},
+	toString(value) {
+		return value instanceof String && value.matches(/s$/) ? value : `${value}s`;
+	}
+}
+*/
