@@ -22,6 +22,9 @@ describe('attributes', () => {
           return this.att2x;
         }
     },
+    att3: {
+      default: 77
+    },
     nested: {
       attributes: {
         att1: {}
@@ -38,6 +41,39 @@ describe('attributes', () => {
       });
 
       assert.equal(object.att1, 'value1');
+      assert.equal(object.att3, 77);
+    });
+
+    describe('with defaults', () => {
+      it('normal set', () => {
+        const object = {};
+
+        atts.setAttributes(object, md, {
+          att3: 17
+        });
+
+        assert.equal(object.att3, 17);
+      });
+
+      it('use default', () => {
+        const object = {};
+
+        atts.setAttributes(object, md, {
+          att1: 17
+        });
+
+        assert.equal(object.att3, 77);
+      });
+
+      it('keep old value', () => {
+        const object = {
+          att3: 4711
+        };
+
+        atts.setAttributes(object, md, {});
+
+        assert.equal(object.att3, 4711);
+      });
     });
 
     it('nested simple', () => {

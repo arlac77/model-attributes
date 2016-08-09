@@ -15,16 +15,23 @@ function setAttributes(dest, atts, src = {}, cb = (ca, path, value) => {}, prefi
 			return;
 		}
 
-		const value = src[name] || ca.default;
+		const value = src[name];
 
 		if (ca.setter) {
 			if (ca.setter.call(dest, value, ca)) {
-				cb(ca, prefix + name, value);
+				cb(ca, prefix + name, value || ca.default);
 			}
 		} else {
-			if (dest[name] !== value && value !== undefined) {
-				dest[name] = value;
-				cb(ca, prefix + name, value);
+			if (value === undefined) {
+				if (dest[name] === undefined && ca.default !== undefined) {
+					dest[name] = ca.default;
+					cb(ca, prefix + name, ca.default);
+				}
+			} else {
+				if (dest[name] !== value) {
+					dest[name] = value;
+					cb(ca, prefix + name, value);
+				}
 			}
 		}
 	});
