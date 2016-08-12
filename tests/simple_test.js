@@ -8,7 +8,7 @@ const chai = require('chai'),
   expect = chai.expect,
   should = chai.should();
 
-const atts = require('../attributes');
+const atts = require('../lib/attributes');
 
 describe('attributes', () => {
   const md = {
