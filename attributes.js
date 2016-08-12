@@ -22,13 +22,14 @@ function setAttributes(dest, atts, src = {}, cb = (ca, path, value) => {}, prefi
 				cb(ca, prefix + name, value || ca.default);
 			}
 		} else {
+			const currentValue = dest[name];
 			if (value === undefined) {
-				if (dest[name] === undefined && ca.default !== undefined) {
+				if (currentValue === undefined && ca.default !== undefined) {
 					dest[name] = ca.default;
 					cb(ca, prefix + name, ca.default);
 				}
 			} else {
-				if (dest[name] !== value) {
+				if (currentValue !== value) {
 					dest[name] = value;
 					cb(ca, prefix + name, value);
 				}
