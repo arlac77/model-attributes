@@ -24,6 +24,22 @@ With [npm](http://npmjs.org) do:
 npm install model-attributes
 ```
 
+```javascript
+const ma = require('model-attributes');
+
+const attributes = {
+  att1: {}
+};
+
+const object = {};
+
+ma.setAttributes(object, attributes, {
+  att1: 'value1'
+});
+
+console.log(object.att1);
+```
+
 license
 =======
 
