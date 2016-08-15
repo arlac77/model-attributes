@@ -15,14 +15,6 @@ attribute meta description
 [![downloads](http://img.shields.io/npm/dm/model-attributes.svg?style=flat-square)](https://npmjs.org/package/model-attributes)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-install
-=======
-
-With [npm](http://npmjs.org) do:
-
-```shell
-npm install model-attributes
-```
 
 ```javascript
 const ma = require('model-attributes');
@@ -38,6 +30,15 @@ ma.setAttributes(object, attributes, {
 });
 
 console.log(object.att1);
+```
+
+install
+=======
+
+With [npm](http://npmjs.org) do:
+
+```shell
+npm install model-attributes
 ```
 
 license
