@@ -44,6 +44,16 @@ describe('attributes', () => {
       assert.equal(object.att3, 77);
     });
 
+    it('unknown', () => {
+      const object = {};
+
+      atts.setAttributes(object, md, {
+        att7: 'value1'
+      });
+
+      assert.isUndefined(object.att7);
+    });
+
     describe('with defaults', () => {
       it('normal set', () => {
         const object = {};

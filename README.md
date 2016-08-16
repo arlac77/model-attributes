@@ -20,7 +20,8 @@ attribute meta description
 const ma = require('model-attributes');
 
 const attributes = {
-  att1: {}
+  att1: {},
+  att2: { datault: 2}
 };
 
 const object = {};
@@ -29,7 +30,8 @@ ma.setAttributes(object, attributes, {
   att1: 'value1'
 });
 
-console.log(object.att1);
+console.log(object.att1); // value1
+console.log(object.att2); // 2
 ```
 
 install
