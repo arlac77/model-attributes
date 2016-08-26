@@ -11,7 +11,7 @@ const chai = require('chai'),
 const atts = require('../lib/attributes');
 
 describe('attributes', () => {
-  const md = {
+  const md = atts.createAttributes({
     att1: {},
     att2: {
       setter(value, attribute) {
@@ -30,7 +30,11 @@ describe('attributes', () => {
         att1: {}
       }
     }
-  };
+  });
+
+  describe('meta definition', () => {
+    it('has name', () => assert.equal(md.att1.name, 'att1'));
+  });
 
   describe('set', () => {
     it('simple', () => {
