@@ -9,20 +9,23 @@ const chai = require('chai'),
   should = chai.should();
 
 const atts = require('../lib/attributes');
+const types = require('../lib/types');
 
 describe('attributes', () => {
   const md = atts.createAttributes({
     att1: {},
     att2: {
+      type: 'string',
       setter(value, attribute) {
-          this.att2x = value;
-          return true;
-        },
-        getter(attribute) {
-          return this.att2x;
-        }
+        this.att2x = value;
+        return true;
+      },
+      getter(attribute) {
+        return this.att2x;
+      }
     },
     att3: {
+      type: 'unsigned-integer',
       default: 77
     },
     nested: {
@@ -34,6 +37,9 @@ describe('attributes', () => {
 
   describe('meta definition', () => {
     it('has name', () => assert.equal(md.att1.name, 'att1'));
+    it('has default type', () => assert.equal(md.att1.type, types.getType('base')));
+    it('has given type', () => assert.equal(md.att2.type, types.getType('string')));
+    it('has given type attributes', () => assert.equal(md.att3.type.minValue, 0));
   });
 
   describe('set', () => {
