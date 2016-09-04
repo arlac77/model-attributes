@@ -29,12 +29,10 @@ describe('attributes', () => {
       default: 77
     },
     nested: {
-      default: {
-        att1: 'the default'
-      },
       attributes: {
         att1: {
-          type: 'string'
+          type: 'string',
+          default: 'the default'
         }
       }
     }
@@ -116,12 +114,11 @@ describe('attributes', () => {
     it('nested default', () => {
       const object = {};
 
-      atts.setAttributes(object, md, {
-      });
+      atts.setAttributes(object, md, {});
 
       assert.equal(object.nested.att1, 'the default');
     });
-    
+
     it('with setter', () => {
       const object = {};
 
