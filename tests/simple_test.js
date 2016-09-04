@@ -29,8 +29,13 @@ describe('attributes', () => {
       default: 77
     },
     nested: {
+      default: {
+        att1: 'the default'
+      },
       attributes: {
-        att1: {}
+        att1: {
+          type: 'string'
+        }
       }
     }
   });
@@ -108,6 +113,15 @@ describe('attributes', () => {
       assert.equal(object.nested.att1, 'value1');
     });
 
+    it('nested default', () => {
+      const object = {};
+
+      atts.setAttributes(object, md, {
+      });
+
+      assert.equal(object.nested.att1, 'the default');
+    });
+    
     it('with setter', () => {
       const object = {};
 
@@ -121,8 +135,8 @@ describe('attributes', () => {
 
   describe('get', () => {
     const object = {
-      'att1': 'value1',
-      'att2x': 'value2'
+      att1: 'value1',
+      att2x: 'value2'
     };
 
     it('simple', () => {
