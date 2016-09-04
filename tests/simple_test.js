@@ -143,5 +143,12 @@ describe('attributes', () => {
     it('with getter', () => {
       assert.equal(atts.getAttribute(object, md, 'att2'), 'value2');
     });
+
+    it('multiple', () => {
+      assert.deepEqual(atts.getAttributes(object, md), {
+        att1: 'value1',
+        att2: 'value2'
+      });
+    });
   });
 });
