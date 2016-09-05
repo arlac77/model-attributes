@@ -119,6 +119,28 @@ describe('attributes', () => {
       assert.equal(object.nested.att1, 'the default');
     });
 
+    it('nested empty', () => {
+      const md = atts.createAttributes({
+        data: {
+          attributes: {}
+        }
+      });
+
+      const object = {};
+
+      atts.setAttributes(object, md, {
+        data: {
+          a: 1,
+          b: 2
+        }
+      });
+
+      assert.deepEqual(object.data, {
+        a: 1,
+        b: 2
+      });
+    });
+
     it('with setter', () => {
       const object = {};
 
