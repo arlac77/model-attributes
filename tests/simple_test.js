@@ -43,6 +43,23 @@ describe('attributes', () => {
     it('has default type', () => assert.equal(md.att1.type, types.getType('base')));
     it('has given type', () => assert.equal(md.att2.type, types.getType('string')));
     it('has given type attributes', () => assert.equal(md.att3.type.minValue, 0));
+
+
+    describe('merge attributes', () => {
+      const md2 = atts.createAttributes({
+        nested: {
+          attributes: {
+            att2: {
+              type: 'string',
+              default: 'the default'
+            }
+          }
+        }
+      });
+
+      atts.mergeAttributes(md2, md);
+      it('has nested attributes', () => assert.equal(md2.nested.type.name, types.getType('string')));
+    });
   });
 
   describe('set', () => {
