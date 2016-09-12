@@ -57,8 +57,8 @@ describe('attributes', () => {
         }
       });
 
-      atts.mergeAttributes(md2, md);
-      it('has nested attributes', () => assert.equal(md2.nested.type.name, types.getType('string')));
+      const ma = atts.mergeAttributes(md2, md);
+      it('has nested attributes', () => assert.deepEqual(Object.keys(ma.nested.attributes), ['att2', 'att1']));
     });
   });
 
