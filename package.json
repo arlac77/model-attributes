@@ -7,11 +7,13 @@
     "attribute",
     "model"
   ],
-  "main": "lib/attributes.js",
+  "main": "dist/attributes.js",
+  "jsnext:main": "src/attributes.js",
   "scripts": {
     "cover": "node ./node_modules/istanbul/lib/cli.js cover --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --R spec --U exports tests",
-    "doc": "jsdoc lib/*.js",
-    "test": "mocha tests/*_test.js && markdown-doctest",
+    "doc": "jsdoc src/*.js",
+    "build": "./node_modules/rollup/bin/rollup --format=cjs --output=dist/attributes.js -- src/attributes.js",
+    "test": "npm run build && mocha tests/*_test.js && markdown-doctest",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -25,11 +27,12 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "3.5.0",
+    "cracks": "3.1.2",
     "cz-conventional-changelog": "^1.2.0",
     "istanbul": "0.4.5",
     "markdown-doctest": "^0.8.1",
     "mocha": "^3.0.2",
-    "cracks": "3.1.2",
+    "rollup": "^0.36.0",
     "semantic-release": "6.3.0"
   },
   "contributors": [{

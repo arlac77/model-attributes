@@ -75,6 +75,10 @@ DeclareType('duration', {
 	}
 });
 
-module.exports.getType = function (name) {
+function getType(name) {
 	return types[name];
+}
+
+export {
+	getType
 };

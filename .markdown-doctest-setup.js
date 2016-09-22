@@ -1,5 +1,5 @@
 module.exports = {
   require: {
-    'model-attributes': require('./lib/attributes')
+    'model-attributes': require('./dist/attributes')
   }
-}
+};

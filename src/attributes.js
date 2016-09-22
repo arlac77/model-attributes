@@ -1,7 +1,10 @@
 /* jslint node: true, esnext: true */
 'use strict';
 
-const types = require('./types');
+import {
+	getType
+}
+from './types';
 
 function _setAttributes(object, dest, atts, src = {}, cb = (ca, path, value) => {}, prefix = '') {
 	Object.keys(atts).forEach(name => {
@@ -58,7 +61,7 @@ function getAttribute(object, atts, path) {
 	return object[path];
 }
 
-module.exports.getAttributes = function (object, atts, options = {}) {
+function getAttributes(object, atts, options = {}) {
 	const result = {};
 
 	Object.keys(atts).forEach(name => {
@@ -69,18 +72,18 @@ module.exports.getAttributes = function (object, atts, options = {}) {
 	});
 
 	return result;
-};
+}
 
-module.exports.createAttributes = function (definitions) {
+function createAttributes(definitions) {
 	Object.keys(definitions).forEach(name => {
 		const d = definitions[name];
 		d.name = name;
 		if (d.attributes === undefined) {
-			d.type = types.getType(d.type) || types.getType('base');
+			d.type = getType(d.type) || getType('base');
 		}
 	});
 	return definitions;
-};
+}
 
 function mergeAttributes(atts, b) {
 	Object.keys(atts).forEach(name => {
@@ -98,7 +101,8 @@ function mergeAttributes(atts, b) {
 	return Object.assign(b, atts);
 }
 
-module.exports.mergeAttributes = mergeAttributes;
-
-module.exports.setAttributes = setAttributes;
-module.exports.getAttribute = getAttribute;
+export {
+	getType,
+	createAttributes, mergeAttributes, setAttributes, getAttributes,
+	getAttribute
+};

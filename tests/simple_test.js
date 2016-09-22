@@ -8,8 +8,7 @@ const chai = require('chai'),
   expect = chai.expect,
   should = chai.should();
 
-const atts = require('../lib/attributes');
-const types = require('../lib/types');
+const atts = require('../dist/attributes');
 
 describe('attributes', () => {
   const md = atts.createAttributes({
@@ -40,8 +39,8 @@ describe('attributes', () => {
 
   describe('meta definition', () => {
     it('has name', () => assert.equal(md.att1.name, 'att1'));
-    it('has default type', () => assert.equal(md.att1.type, types.getType('base')));
-    it('has given type', () => assert.equal(md.att2.type, types.getType('string')));
+    it('has default type', () => assert.equal(md.att1.type, atts.getType('base')));
+    it('has given type', () => assert.equal(md.att2.type, atts.getType('string')));
     it('has given type attributes', () => assert.equal(md.att3.type.minValue, 0));
 
 
