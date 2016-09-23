@@ -54,6 +54,10 @@ DeclareType('ip-port', {
 	maxValue: 65535
 });
 
+DeclareType('url', {
+	parent: 'string'
+});
+
 DeclareType('hostname', {
 	parent: 'string',
 	description: 'fully qualified host name'
