@@ -19,10 +19,10 @@ attribute meta description
 ```javascript
 const ma = require('model-attributes');
 
-const attributes = {
+const attributes = ma.createAttributes({
   att1: {},
   att2: { datault: 2}
-};
+});
 
 const object = {};
 
