@@ -35,6 +35,9 @@
     "rollup": "^0.36.0",
     "semantic-release": "6.3.0"
   },
+  "release": {
+    "verifyRelease": "cracks"
+  },
   "contributors": [{
     "name": "Torsten Link",
     "email": "torstenlink@gmx.de"
