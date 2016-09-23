@@ -4,13 +4,13 @@
 const types = {};
 
 function DeclareType(name, options) {
-	options.name = name;
-	if (options.parent) {
-		options.parent = types[options.parent];
-		types[name] = Object.assign(options, options.parent);
-	} else {
-		types[name] = options;
-	}
+	const parent = types[options.parent] || types.base;
+
+	types[name] = Object.assign(options, options.parent);
+
+	Object.defineProperty(options, 'name', {
+		value: name
+	});
 }
 
 DeclareType('base', {

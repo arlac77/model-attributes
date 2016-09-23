@@ -42,6 +42,7 @@ describe('attributes', () => {
     it('has default type', () => assert.equal(md.att1.type, atts.getType('base')));
     it('has given type', () => assert.equal(md.att2.type, atts.getType('string')));
     it('has given type attributes', () => assert.equal(md.att3.type.minValue, 0));
+    it('has given type name', () => assert.equal(md.att3.type.name, 'unsigned-integer'));
 
 
     describe('merge attributes', () => {
