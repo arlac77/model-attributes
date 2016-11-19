@@ -10,4 +10,40 @@
 [![devDependency Status](https://david-dm.org/arlac77/model-attributes/dev-status.svg)](https://david-dm.org/arlac77/model-attributes#info=devDependencies)
 [![docs](http://inch-ci.org/github/arlac77/model-attributes.svg?branch=master)](http://inch-ci.org/github/arlac77/model-attributes)
 [![downloads](http://img.shields.io/npm/dm/model-attributes.svg?style=flat-square)](https://npmjs.org/package/model-attributes)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
+model-attributes
+==========
+attribute meta description
+
+```javascript
+const ma = require('model-attributes');
+
+const attributes = ma.createAttributes({
+  att1: {},
+  att2: { datault: 2}
+});
+
+const object = {};
+
+ma.setAttributes(object, attributes, {
+  att1: 'value1'
+});
+
+console.log(object.att1); // value1
+console.log(object.att2); // 2
+```
+
+install
+=======
+
+With [npm](http://npmjs.org) do:
+
+```shell
+npm install model-attributes
+```
+
+license
+=======
+
+BSD-2-Clause
