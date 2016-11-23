@@ -35,6 +35,42 @@ console.log(object.att1); // value1
 console.log(object.att2); // 2
 ```
 
+# API Reference
+
+* <a name="setAttributes"></a>
+
+## setAttributes(dest, atts, src, cb, prefix) ⇒
+Copies attribute values from a source object into a destination object.
+
+**Kind**: global function  
+**Returns**: void  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| dest | <code>Object</code> | target object to be modified |
+| atts | <code>Object</code> | attribute definitions to be used |
+| src | <code>Object</code> | origin of the data to be copied |
+| cb | <code>function</code> | callback to be executed for each copied value |
+| prefix | <code>String</code> | name prefix used for all attributes |
+
+
+* <a name="getAttribute"></a>
+
+## getAttribute(object, atts, path) ⇒ <code>Any</code>
+Delivers a attribute value for a given attribute name
+
+**Kind**: global function  
+**Returns**: <code>Any</code> - attribute value  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| object | <code>Object</code> | to query |
+| atts | <code>Object</code> | attribute definitions to be used |
+| path | <code>String</code> | attribute name |
+
+
+* * *
+
 install
 =======
 
