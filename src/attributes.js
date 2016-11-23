@@ -46,10 +46,26 @@ function _setAttributes(object, dest, atts, src = {}, cb = (ca, path, value) => 
 	});
 }
 
+/**
+ * Copies attribute values from a source object into a destination object.
+ * @param {Object} dest target object to be modified
+ * @param {Object} atts attribute definitions to be used
+ * @param {Object} src origin of the data to be copied
+ * @param {Function} cb callback to be executed for each copied value
+ * @param {String} prefix name prefix used for all attributes
+ * @return void
+ */
 function setAttributes(dest, atts, src, cb, prefix) {
-	return _setAttributes(dest, dest, atts, src, cb, prefix);
+	_setAttributes(dest, dest, atts, src, cb, prefix);
 }
 
+/**
+ * Delivers a attribute value for a given attribute name
+ * @param {Object} object to query
+ * @param {Object} atts attribute definitions to be used
+ * @param {String} path attribute name
+ * @return {Any} attribute value
+ */
 function getAttribute(object, atts, path) {
 	const ca = atts[path];
 	if (ca) {
