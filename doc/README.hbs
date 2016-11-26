@@ -7,6 +7,7 @@
 [![Code Climate](https://codeclimate.com/github/arlac77/model-attributes/badges/gpa.svg)](https://codeclimate.com/github/arlac77/model-attributes)
 [![Known Vulnerabilities](https://snyk.io/test/github/arlac77/model-attributes/badge.svg)](https://snyk.io/test/github/arlac77/model-attributes)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/model-attributes.svg?style=flat-square)](https://github.com/arlac77/model-attributes/issues)
+[![Stories in Ready](https://badge.waffle.io/arlac77/model-attributes.svg?label=ready&title=Ready)](http://waffle.io/arlac77/model-attributes)
 [![Dependency Status](https://david-dm.org/arlac77/model-attributes.svg)](https://david-dm.org/arlac77/model-attributes)
 [![devDependency Status](https://david-dm.org/arlac77/model-attributes/dev-status.svg)](https://david-dm.org/arlac77/model-attributes#info=devDependencies)
 [![docs](http://inch-ci.org/github/arlac77/model-attributes.svg?branch=master)](http://inch-ci.org/github/arlac77/model-attributes)
