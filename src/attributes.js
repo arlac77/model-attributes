@@ -101,12 +101,18 @@ function createAttributes(definitions) {
 	return definitions;
 }
 
-function mergeAttributes(atts, b) {
+/**
+ * Merge attribute definitions
+ * @param {Object} dest attribute definitions to be used also the merge target
+ * @param {Object} atts attribute definitions to be used
+ * @return {Object} merged definitions
+ */
+function mergeAttributes(dest, atts) {
 	Object.keys(atts).forEach(name => {
 		const ca = atts[name];
 
 		if (ca.attributes !== undefined) {
-			const bn = b[name];
+			const bn = dest[name];
 
 			if (bn !== undefined) {
 				Object.assign(ca.attributes, bn.attributes);
@@ -114,7 +120,7 @@ function mergeAttributes(atts, b) {
 		}
 	});
 
-	return Object.assign(b, atts);
+	return Object.assign(dest, atts);
 }
 
 export {

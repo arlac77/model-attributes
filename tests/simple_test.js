@@ -44,7 +44,6 @@ describe('attributes', () => {
     it('has given type attributes', () => assert.equal(md.att3.type.minValue, 0));
     it('has given type name', () => assert.equal(md.att3.type.name, 'unsigned-integer'));
 
-
     describe('merge attributes', () => {
       const md2 = atts.createAttributes({
         nested: {
@@ -58,7 +57,7 @@ describe('attributes', () => {
       });
 
       const ma = atts.mergeAttributes(md2, md);
-      it('has nested attributes', () => assert.deepEqual(Object.keys(ma.nested.attributes), ['att2', 'att1']));
+      it('has nested attributes', () => assert.deepEqual(Object.keys(ma.nested.attributes), ['att1', 'att2']));
     });
   });
 
