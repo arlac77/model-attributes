@@ -70,6 +70,20 @@ Delivers a attribute value for a given attribute name
 | path | <code>String</code> | attribute name |
 
 
+* <a name="mergeAttributes"></a>
+
+## mergeAttributes(dest, atts) ⇒ <code>Object</code>
+Merge attribute definitions
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - merged definitions  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| dest | <code>Object</code> | attribute definitions to be used also the merge target |
+| atts | <code>Object</code> | attribute definitions to be used |
+
+
 * * *
 
 install
