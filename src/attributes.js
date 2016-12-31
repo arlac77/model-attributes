@@ -90,6 +90,9 @@ function getAttributes(object, atts, options = {}) {
 	return result;
 }
 
+/**
+ * Create attributes from its definition
+ */
 function createAttributes(definitions) {
 	Object.keys(definitions).forEach(name => {
 		const d = definitions[name];
@@ -105,7 +108,7 @@ function createAttributes(definitions) {
  * Merge attribute definitions
  * @param {Object} dest attribute definitions to be used also the merge target
  * @param {Object} atts attribute definitions to be used
- * @return {Object} merged definitions
+ * @return {Object} merged definitions (dest)
  */
 function mergeAttributes(dest, atts) {
 	Object.keys(atts).forEach(name => {
