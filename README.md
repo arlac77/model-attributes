@@ -37,13 +37,14 @@ console.log(object.att2); // 2
 ```
 
 # API Reference
+- model-attributes
 
-* <a name="setAttributes"></a>
+* <a name="module_model-attributes.setAttributes"></a>
 
-## setAttributes(dest, atts, src, cb, prefix) ⇒
+## model-attributes.setAttributes(dest, atts, src, cb, prefix) ⇒
 Copies attribute values from a source object into a destination object.
 
-**Kind**: global function  
+**Kind**: static method of <code>[model-attributes](#module_model-attributes)</code>  
 **Returns**: void  
 
 | Param | Type | Description |
@@ -55,12 +56,12 @@ Copies attribute values from a source object into a destination object.
 | prefix | <code>String</code> | name prefix used for all attributes |
 
 
-* <a name="getAttribute"></a>
+* <a name="module_model-attributes.getAttribute"></a>
 
-## getAttribute(object, atts, path) ⇒ <code>Any</code>
+## model-attributes.getAttribute(object, atts, path) ⇒ <code>Any</code>
 Delivers a attribute value for a given attribute name
 
-**Kind**: global function  
+**Kind**: static method of <code>[model-attributes](#module_model-attributes)</code>  
 **Returns**: <code>Any</code> - attribute value  
 
 | Param | Type | Description |
@@ -70,13 +71,41 @@ Delivers a attribute value for a given attribute name
 | path | <code>String</code> | attribute name |
 
 
-* <a name="mergeAttributes"></a>
+* <a name="module_model-attributes.getAttributes"></a>
 
-## mergeAttributes(dest, atts) ⇒ <code>Object</code>
+## model-attributes.getAttributes(object, attributes, options) ⇒ <code>Object</code>
+Retrive attribute values from an object
+
+**Kind**: static method of <code>[model-attributes](#module_model-attributes)</code>  
+**Returns**: <code>Object</code> - values  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| object | <code>Object</code> | attribute value source |
+| attributes | <code>Object</code> |  |
+| options | <code>Object</code> |  |
+
+
+* <a name="module_model-attributes.createAttributes"></a>
+
+## model-attributes.createAttributes(definitions) ⇒ <code>Object</code>
+Create attributes from its definition
+
+**Kind**: static method of <code>[model-attributes](#module_model-attributes)</code>  
+**Returns**: <code>Object</code> - attributes  
+
+| Param | Type |
+| --- | --- |
+| definitions | <code>Object</code> | 
+
+
+* <a name="module_model-attributes.mergeAttributes"></a>
+
+## model-attributes.mergeAttributes(dest, atts) ⇒ <code>Object</code>
 Merge attribute definitions
 
-**Kind**: global function  
-**Returns**: <code>Object</code> - merged definitions  
+**Kind**: static method of <code>[model-attributes](#module_model-attributes)</code>  
+**Returns**: <code>Object</code> - merged definitions (dest)  
 
 | Param | Type | Description |
 | --- | --- | --- |

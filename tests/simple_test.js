@@ -8,10 +8,12 @@ const chai = require('chai'),
   expect = chai.expect,
   should = chai.should();
 
-const atts = require('../dist/attributes');
+const {
+  getType, createAttributes, mergeAttributes, setAttributes, getAttribute, getAttributes
+} = require('../dist/attributes');
 
 describe('attributes', () => {
-  const md = atts.createAttributes({
+  const md = createAttributes({
     att1: {},
     att2: {
       type: 'string',
@@ -39,13 +41,13 @@ describe('attributes', () => {
 
   describe('meta definition', () => {
     it('has name', () => assert.equal(md.att1.name, 'att1'));
-    it('has default type', () => assert.equal(md.att1.type, atts.getType('base')));
-    it('has given type', () => assert.equal(md.att2.type, atts.getType('string')));
+    it('has default type', () => assert.equal(md.att1.type, getType('base')));
+    it('has given type', () => assert.equal(md.att2.type, getType('string')));
     it('has given type attributes', () => assert.equal(md.att3.type.minValue, 0));
     it('has given type name', () => assert.equal(md.att3.type.name, 'unsigned-integer'));
 
     describe('merge attributes', () => {
-      const md2 = atts.createAttributes({
+      const md2 = createAttributes({
         nested: {
           attributes: {
             att2: {
@@ -56,7 +58,7 @@ describe('attributes', () => {
         }
       });
 
-      const ma = atts.mergeAttributes(md2, md);
+      const ma = mergeAttributes(md2, md);
       it('has nested attributes', () => assert.deepEqual(Object.keys(ma.nested.attributes), ['att1', 'att2']));
     });
   });
@@ -65,7 +67,7 @@ describe('attributes', () => {
     it('simple', () => {
       const object = {};
 
-      atts.setAttributes(object, md, {
+      setAttributes(object, md, {
         att1: 'value1'
       });
 
@@ -76,7 +78,7 @@ describe('attributes', () => {
     it('unknown', () => {
       const object = {};
 
-      atts.setAttributes(object, md, {
+      setAttributes(object, md, {
         att7: 'value1'
       });
 
@@ -87,7 +89,7 @@ describe('attributes', () => {
       it('normal set', () => {
         const object = {};
 
-        atts.setAttributes(object, md, {
+        setAttributes(object, md, {
           att3: 17
         });
 
@@ -97,7 +99,7 @@ describe('attributes', () => {
       it('use default', () => {
         const object = {};
 
-        atts.setAttributes(object, md, {
+        setAttributes(object, md, {
           att1: 17
         });
 
@@ -109,7 +111,7 @@ describe('attributes', () => {
           att3: 4711
         };
 
-        atts.setAttributes(object, md, {});
+        setAttributes(object, md, {});
 
         assert.equal(object.att3, 4711);
       });
@@ -118,7 +120,7 @@ describe('attributes', () => {
     it('nested simple', () => {
       const object = {};
 
-      atts.setAttributes(object, md, {
+      setAttributes(object, md, {
         nested: { 
           att1: 'value1'
         }
@@ -130,13 +132,13 @@ describe('attributes', () => {
     it('nested default', () => {
       const object = {};
 
-      atts.setAttributes(object, md, {});
+      setAttributes(object, md, {});
 
       assert.equal(object.nested.att1, 'the default');
     });
 
     it('nested empty', () => {
-      const md = atts.createAttributes({
+      const md = createAttributes({
         data: {
           attributes: {}
         }
@@ -144,7 +146,7 @@ describe('attributes', () => {
 
       const object = {};
 
-      atts.setAttributes(object, md, {
+      setAttributes(object, md, {
         data: {
           a: 1,
           b: 2
@@ -160,7 +162,7 @@ describe('attributes', () => {
     it('with setter', () => {
       const object = {};
 
-      atts.setAttributes(object, md, {
+      setAttributes(object, md, {
         att2: 'value2'
       });
 
@@ -175,15 +177,15 @@ describe('attributes', () => {
     };
 
     it('simple', () => {
-      assert.equal(atts.getAttribute(object, md, 'att1'), 'value1');
+      assert.equal(getAttribute(object, md, 'att1'), 'value1');
     });
 
     it('with getter', () => {
-      assert.equal(atts.getAttribute(object, md, 'att2'), 'value2');
+      assert.equal(getAttribute(object, md, 'att2'), 'value2');
     });
 
     it('multiple', () => {
-      assert.deepEqual(atts.getAttributes(object, md), {
+      assert.deepEqual(getAttributes(object, md), {
         att1: 'value1',
         att2: 'value2'
       });

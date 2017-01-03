@@ -1,6 +1,10 @@
 /* jslint node: true, esnext: true */
 'use strict';
 
+/**
+ * @module model-attributes
+ */
+
 import {
 	getType
 }
@@ -134,3 +138,7 @@ export function mergeAttributes(dest, atts) {
 
 	return Object.assign(dest, atts);
 }
+
+export {
+	getType
+};
