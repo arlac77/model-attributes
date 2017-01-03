@@ -55,7 +55,7 @@ function _setAttributes(object, dest, atts, src = {}, cb = (ca, path, value) => 
  * @param {String} prefix name prefix used for all attributes
  * @return void
  */
-function setAttributes(dest, atts, src, cb, prefix) {
+export function setAttributes(dest, atts, src, cb, prefix) {
 	_setAttributes(dest, dest, atts, src, cb, prefix);
 }
 
@@ -66,7 +66,7 @@ function setAttributes(dest, atts, src, cb, prefix) {
  * @param {String} path attribute name
  * @return {Any} attribute value
  */
-function getAttribute(object, atts, path) {
+export function getAttribute(object, atts, path) {
 	const ca = atts[path];
 	if (ca) {
 		if (ca.getter !== undefined) {
@@ -77,7 +77,14 @@ function getAttribute(object, atts, path) {
 	return object[path];
 }
 
-function getAttributes(object, atts, options = {}) {
+/**
+ * Retrive attribute values from an object
+ * @param {Object} object attribute value source
+ * @param {Object} attributes
+ * @param {Object} options
+ * @return {Object} values
+ */
+export function getAttributes(object, atts, options = {}) {
 	const result = {};
 
 	Object.keys(atts).forEach(name => {
@@ -92,8 +99,10 @@ function getAttributes(object, atts, options = {}) {
 
 /**
  * Create attributes from its definition
+ * @param {Object} definitions
+ * @return {Object} attributes
  */
-function createAttributes(definitions) {
+export function createAttributes(definitions) {
 	Object.keys(definitions).forEach(name => {
 		const d = definitions[name];
 		d.name = name;
@@ -110,7 +119,7 @@ function createAttributes(definitions) {
  * @param {Object} atts attribute definitions to be used
  * @return {Object} merged definitions (dest)
  */
-function mergeAttributes(dest, atts) {
+export function mergeAttributes(dest, atts) {
 	Object.keys(atts).forEach(name => {
 		const ca = atts[name];
 
@@ -125,9 +134,3 @@ function mergeAttributes(dest, atts) {
 
 	return Object.assign(dest, atts);
 }
-
-export {
-	getType,
-	createAttributes, mergeAttributes, setAttributes, getAttributes,
-	getAttribute
-};
