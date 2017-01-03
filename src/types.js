@@ -3,7 +3,7 @@
 
 const types = {};
 
-function DeclareType(name, options) {
+export function DeclareType(name, options) {
 	const parent = types[options.parent] || types.base;
 
 	types[name] = Object.assign(options, options.parent);
@@ -79,10 +79,6 @@ DeclareType('duration', {
 	}
 });
 
-function getType(name) {
+export function getType(name) {
 	return types[name];
 }
-
-export {
-	getType
-};
