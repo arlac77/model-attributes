@@ -4,7 +4,7 @@
 const types = {};
 
 export function DeclareType(name, options) {
-	const parent = types[options.parent] || types.base;
+	//const parent = types[options.parent] || types.base;
 
 	types[name] = Object.assign(options, options.parent);
 
@@ -15,11 +15,11 @@ export function DeclareType(name, options) {
 
 DeclareType('base', {
 	parse(string, offset) {
-			return [undefined, offset];
-		},
-		toString(value) {
-			return value;
-		}
+		return [undefined, offset];
+	},
+	toString(value) {
+		return value;
+	}
 });
 
 DeclareType('blob', {
