@@ -40,12 +40,12 @@ console.log(object.att2); // 2
 # API Reference
 - model-attributes
 
-* <a name="module_model-attributes.setAttributes"></a>
+* <a name="module_model-attributes..setAttributes"></a>
 
-## model-attributes.setAttributes(dest, atts, src, cb, prefix) ⇒ <code>undefined</code>
+## model-attributes~setAttributes(dest, atts, src, cb, prefix) ⇒ <code>undefined</code>
 Copies attribute values from a source object into a destination object.
 
-**Kind**: static method of <code>[model-attributes](#module_model-attributes)</code>  
+**Kind**: inner method of <code>[model-attributes](#module_model-attributes)</code>  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -56,12 +56,12 @@ Copies attribute values from a source object into a destination object.
 | prefix | <code>string</code> | name prefix used for all attributes |
 
 
-* <a name="module_model-attributes.getAttribute"></a>
+* <a name="module_model-attributes..getAttribute"></a>
 
-## model-attributes.getAttribute(object, atts, path) ⇒ <code>Any</code>
+## model-attributes~getAttribute(object, atts, path) ⇒ <code>Any</code>
 Delivers a attribute value for a given attribute name
 
-**Kind**: static method of <code>[model-attributes](#module_model-attributes)</code>  
+**Kind**: inner method of <code>[model-attributes](#module_model-attributes)</code>  
 **Returns**: <code>Any</code> - attribute value  
 
 | Param | Type | Description |
@@ -71,12 +71,12 @@ Delivers a attribute value for a given attribute name
 | path | <code>string</code> | attribute name |
 
 
-* <a name="module_model-attributes.getAttributes"></a>
+* <a name="module_model-attributes..getAttributes"></a>
 
-## model-attributes.getAttributes(object, attributes, options) ⇒ <code>object</code>
+## model-attributes~getAttributes(object, attributes, options) ⇒ <code>object</code>
 Retrive attribute values from an object
 
-**Kind**: static method of <code>[model-attributes](#module_model-attributes)</code>  
+**Kind**: inner method of <code>[model-attributes](#module_model-attributes)</code>  
 **Returns**: <code>object</code> - values  
 
 | Param | Type | Description |
@@ -86,12 +86,12 @@ Retrive attribute values from an object
 | options | <code>object</code> |  |
 
 
-* <a name="module_model-attributes.createAttributes"></a>
+* <a name="module_model-attributes..createAttributes"></a>
 
-## model-attributes.createAttributes(definitions) ⇒ <code>object</code>
+## model-attributes~createAttributes(definitions) ⇒ <code>object</code>
 Create attributes from its definition
 
-**Kind**: static method of <code>[model-attributes](#module_model-attributes)</code>  
+**Kind**: inner method of <code>[model-attributes](#module_model-attributes)</code>  
 **Returns**: <code>object</code> - attributes  
 
 | Param | Type |
@@ -99,12 +99,12 @@ Create attributes from its definition
 | definitions | <code>object</code> | 
 
 
-* <a name="module_model-attributes.mergeAttributes"></a>
+* <a name="module_model-attributes..mergeAttributes"></a>
 
-## model-attributes.mergeAttributes(dest, atts) ⇒ <code>object</code>
+## model-attributes~mergeAttributes(dest, atts) ⇒ <code>object</code>
 Merge attribute definitions
 
-**Kind**: static method of <code>[model-attributes](#module_model-attributes)</code>  
+**Kind**: inner method of <code>[model-attributes](#module_model-attributes)</code>  
 **Returns**: <code>object</code> - merged definitions (dest)  
 
 | Param | Type | Description |
