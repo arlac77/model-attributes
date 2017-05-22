@@ -11,11 +11,11 @@ const md = createAttributes({
   att1: {},
   att2: {
     type: 'string',
-    setter(value, attribute) {
+    setter(value) {
       this.att2x = value;
       return true;
     },
-    getter(attribute) {
+    getter() {
       return this.att2x;
     }
   },
@@ -109,7 +109,7 @@ test('set nested simple', t => {
   const object = {};
 
   setAttributes(object, md, {
-    nested: { 
+    nested: {
       att1: 'value1'
     }
   });

@@ -5,12 +5,9 @@
  * @module model-attributes
  */
 
-import {
-	getType
-}
-from './types';
+import { getType } from './types';
 
-function _setAttributes(object, dest, atts, src = {}, cb = (ca, path, value) => {}, prefix = '') {
+function _setAttributes(object, dest, atts, src = {}, cb = (ca, path, value) => { }, prefix = '') {
 	Object.keys(atts).forEach(name => {
 		const ca = atts[name];
 
