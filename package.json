@@ -33,7 +33,7 @@
     "cz-conventional-changelog": "^2.0.0",
     "jsdoc-to-markdown": "^3.0.0",
     "markdown-doctest": "^0.9.1",
-    "nyc": "^11.0.0",
+    "nyc": "^11.0.1",
     "rollup": "^0.41.6",
     "semantic-release": "^6.3.6",
     "jsdoc-babel": "^0.3.0",
@@ -41,8 +41,8 @@
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-multi-entry": "^2.0.1",
     "babel-preset-es2015-rollup": "^3.0.0",
-    "babel-plugin-transform-async-generator-functions": "^6.24.1",
-    "xo": "^0.19.0"
+    "xo": "^0.19.0",
+    "babel-preset-stage-3": "^6.24.1"
   },
   "release": {
     "verifyRelease": "cracks"
@@ -59,7 +59,7 @@
   ],
   "license": "BSD-2-Clause",
   "engines": {
-    "node": ">=7.10.0"
+    "node": ">=8.0.0"
   },
   "config": {
     "commitizen": {
