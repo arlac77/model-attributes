@@ -1,6 +1,3 @@
-/* jslint node: true, esnext: true */
-'use strict';
-
 const types = {};
 
 export function DeclareType(name, options) {
@@ -15,11 +12,11 @@ export function DeclareType(name, options) {
 
 DeclareType('base', {
 	parse(string, offset) {
-		return [undefined, offset];
-	},
-	toString(value) {
-		return value;
-	}
+			return [undefined, offset];
+		},
+		toString(value) {
+			return value;
+		}
 });
 
 DeclareType('blob', {

@@ -46,29 +46,26 @@
   "release": {
     "verifyRelease": "cracks"
   },
-  "contributors": [
-    {
-      "name": "Torsten Link",
-      "email": "torstenlink@gmx.de"
-    },
-    {
-      "name": "Markus Felten",
-      "email": "markus.felten@gmx.de"
-    }
-  ],
+  "contributors": [{
+    "name": "Torsten Link",
+    "email": "torstenlink@gmx.de"
+  }, {
+    "name": "Markus Felten",
+    "email": "markus.felten@gmx.de"
+  }],
   "license": "BSD-2-Clause",
   "engines": {
     "node": ">=8.1.0"
   },
-  "config": {},
   "nyc": {
     "include": [
-      "dist/**/*.js"
+      "build/test-bundle.js",
+      "src/**/*.js"
     ],
     "reporter": [
       "lcov"
     ],
-    "report-dir": "./coverage"
+    "report-dir": "./build/coverage"
   },
   "template": {
     "repository": {
@@ -80,7 +77,7 @@
   },
   "ava": {
     "files": [
-      "tests/build/bundle.js"
+      "build/test-bundle.js"
     ],
     "require": [
       "babel-register"
