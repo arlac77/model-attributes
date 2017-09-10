@@ -2,49 +2,60 @@
  * @module model-attributes
  */
 
-import {
-	getType
-}
-from './types';
+import { getType } from './types';
 
-function _setAttributes(object, dest, atts, src = {}, cb = (ca, path, value) => {}, prefix = '') {
-	Object.keys(atts).forEach(name => {
-		const ca = atts[name];
+function _setAttributes(
+  object,
+  dest,
+  atts,
+  src = {},
+  cb = (ca, path, value) => {},
+  prefix = ''
+) {
+  Object.keys(atts).forEach(name => {
+    const ca = atts[name];
 
-		if (ca.attributes !== undefined) {
-			if (dest[name] === undefined) {
-				// TODO create default
-				if (Object.keys(ca.attributes).length === 0) {
-					dest[name] = src[name];
-					return;
-				}
-				dest[name] = {};
-			}
-			_setAttributes(object, dest[name], ca.attributes, src[name], cb, prefix + name + '.');
-			return;
-		}
+    if (ca.attributes !== undefined) {
+      if (dest[name] === undefined) {
+        // TODO create default
+        if (Object.keys(ca.attributes).length === 0) {
+          dest[name] = src[name];
+          return;
+        }
+        dest[name] = {};
+      }
+      _setAttributes(
+        object,
+        dest[name],
+        ca.attributes,
+        src[name],
+        cb,
+        prefix + name + '.'
+      );
+      return;
+    }
 
-		const value = src[name];
+    const value = src[name];
 
-		if (ca.setter !== undefined) {
-			if (ca.setter.call(object, value, ca)) {
-				cb(ca, prefix + name, value || ca.default);
-			}
-		} else {
-			const currentValue = dest[name];
-			if (value === undefined) {
-				if (currentValue === undefined && ca.default !== undefined) {
-					dest[name] = ca.default;
-					cb(ca, prefix + name, ca.default);
-				}
-			} else {
-				if (currentValue !== value) {
-					dest[name] = value;
-					cb(ca, prefix + name, value);
-				}
-			}
-		}
-	});
+    if (ca.setter !== undefined) {
+      if (ca.setter.call(object, value, ca)) {
+        cb(ca, prefix + name, value || ca.default);
+      }
+    } else {
+      const currentValue = dest[name];
+      if (value === undefined) {
+        if (currentValue === undefined && ca.default !== undefined) {
+          dest[name] = ca.default;
+          cb(ca, prefix + name, ca.default);
+        }
+      } else {
+        if (currentValue !== value) {
+          dest[name] = value;
+          cb(ca, prefix + name, value);
+        }
+      }
+    }
+  });
 }
 
 /**
@@ -57,7 +68,7 @@ function _setAttributes(object, dest, atts, src = {}, cb = (ca, path, value) => 
  * @return {undefined}
  */
 export function setAttributes(dest, atts, src, cb, prefix) {
-	_setAttributes(dest, dest, atts, src, cb, prefix);
+  _setAttributes(dest, dest, atts, src, cb, prefix);
 }
 
 /**
@@ -68,14 +79,14 @@ export function setAttributes(dest, atts, src, cb, prefix) {
  * @return {Any} attribute value
  */
 export function getAttribute(object, atts, path) {
-	const ca = atts[path];
-	if (ca) {
-		if (ca.getter !== undefined) {
-			return ca.getter.call(object, ca);
-		}
-	}
+  const ca = atts[path];
+  if (ca) {
+    if (ca.getter !== undefined) {
+      return ca.getter.call(object, ca);
+    }
+  }
 
-	return object[path];
+  return object[path];
 }
 
 /**
@@ -86,16 +97,16 @@ export function getAttribute(object, atts, path) {
  * @return {object} values
  */
 export function getAttributes(object, atts, options = {}) {
-	const result = {};
+  const result = {};
 
-	Object.keys(atts).forEach(name => {
-		const value = getAttribute(object, atts, name);
-		if (value !== undefined) {
-			result[name] = value;
-		}
-	});
+  Object.keys(atts).forEach(name => {
+    const value = getAttribute(object, atts, name);
+    if (value !== undefined) {
+      result[name] = value;
+    }
+  });
 
-	return result;
+  return result;
 }
 
 /**
@@ -104,14 +115,14 @@ export function getAttributes(object, atts, options = {}) {
  * @return {object} attributes
  */
 export function createAttributes(definitions) {
-	Object.keys(definitions).forEach(name => {
-		const d = definitions[name];
-		d.name = name;
-		if (d.attributes === undefined) {
-			d.type = getType(d.type) || getType('base');
-		}
-	});
-	return definitions;
+  Object.keys(definitions).forEach(name => {
+    const d = definitions[name];
+    d.name = name;
+    if (d.attributes === undefined) {
+      d.type = getType(d.type) || getType('base');
+    }
+  });
+  return definitions;
 }
 
 /**
@@ -121,21 +132,19 @@ export function createAttributes(definitions) {
  * @return {object} merged definitions (dest)
  */
 export function mergeAttributes(dest, atts) {
-	Object.keys(atts).forEach(name => {
-		const ca = atts[name];
+  Object.keys(atts).forEach(name => {
+    const ca = atts[name];
 
-		if (ca.attributes !== undefined) {
-			const bn = dest[name];
+    if (ca.attributes !== undefined) {
+      const bn = dest[name];
 
-			if (bn !== undefined) {
-				Object.assign(ca.attributes, bn.attributes);
-			}
-		}
-	});
+      if (bn !== undefined) {
+        Object.assign(ca.attributes, bn.attributes);
+      }
+    }
+  });
 
-	return Object.assign(dest, atts);
+  return Object.assign(dest, atts);
 }
 
-export {
-	getType
-};
+export { getType };

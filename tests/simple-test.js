@@ -1,9 +1,13 @@
 import test from 'ava';
 
 import {
-  getType, createAttributes, mergeAttributes, setAttributes, getAttribute, getAttributes
-}
-from '../src/attributes';
+  getType,
+  createAttributes,
+  mergeAttributes,
+  setAttributes,
+  getAttribute,
+  getAttributes
+} from '../src/attributes';
 
 const md = createAttributes({
   att1: {},
