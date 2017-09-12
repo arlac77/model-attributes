@@ -1,11 +1,7 @@
-import multiEntry from 'rollup-plugin-multi-entry';
-
 export default {
-  entry: 'tests/**/*-test.js',
+  entry: 'tests/attributes-test.js',
   external: ['ava'],
-  plugins: [
-    multiEntry()
-  ],
+  plugins: [],
   format: 'cjs',
   dest: 'build/test-bundle.js',
   sourceMap: true
