@@ -1,8 +1,7 @@
 export default {
-  input: 'tests/**/*-test.js',
+  input: 'tests/attributes-test.js',
   external: ['ava'],
   plugins: [],
-
   output: {
     file: 'build/test-bundle.js',
     format: 'cjs',
