@@ -80,7 +80,7 @@ export function setAttributes(dest, atts, src, cb, prefix) {
  */
 export function getAttribute(object, atts, path) {
   const ca = atts[path];
-  if (ca) {
+  if (ca !== undefined) {
     if (ca.getter !== undefined) {
       return ca.getter.call(object, ca);
     }
