@@ -3,7 +3,7 @@ export default {
   external: ['ava'],
   plugins: [],
   output: {
-    file: 'build/test-bundle.js',
+    file: 'build/attributes-test.js',
     format: 'cjs',
     sourcemap: true
   }
