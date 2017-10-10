@@ -2,16 +2,18 @@
   "name": "model-attributes",
   "version": "0.0.0-semantic-release",
   "description": "attribute meta description",
-  "keywords": ["meta", "attribute", "model"],
+  "keywords": [
+    "meta",
+    "attribute",
+    "model"
+  ],
   "main": "dist/attributes.js",
   "module": "src/attributes.js",
   "scripts": {
     "cover": "nyc ava",
     "test": "ava",
-    "docs":
-      "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.js >README.md",
-    "semantic-release":
-      "semantic-release pre && npm publish && semantic-release post",
+    "docs": "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.js >README.md",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "pretest": "rollup -c tests/rollup.config.js",
     "posttest": "npm run prepare && markdown-doctest",
     "precover": "rollup -c tests/rollup.config.js",
@@ -55,8 +57,13 @@
     "node": ">=8.6.0"
   },
   "nyc": {
-    "include": ["build/*-test.js", "src/**/*.js"],
-    "reporter": ["lcov"],
+    "include": [
+      "build/*-test.js",
+      "src/**/*.js"
+    ],
+    "reporter": [
+      "lcov"
+    ],
     "report-dir": "./build/coverage"
   },
   "template": {
@@ -68,7 +75,11 @@
     "space": true
   },
   "ava": {
-    "files": ["build/*-test.js"],
-    "require": ["babel-register"]
+    "files": [
+      "build/*-test.js"
+    ],
+    "require": [
+      "babel-register"
+    ]
   }
 }
