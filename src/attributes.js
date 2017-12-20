@@ -3,6 +3,7 @@
  */
 
 import { getType } from './types';
+export { getType };
 
 function _setAttributes(
   object,
@@ -60,9 +61,9 @@ function _setAttributes(
 
 /**
  * Copies attribute values from a source object into a destination object.
- * @param {object} dest target object to be modified
- * @param {object} atts attribute definitions to be used
- * @param {object} src origin of the data to be copied
+ * @param {Object} dest target object to be modified
+ * @param {Object} atts attribute definitions to be used
+ * @param {Object} src origin of the data to be copied
  * @param {function} cb callback to be executed for each copied value
  * @param {string} prefix name prefix used for all attributes
  * @return {undefined}
@@ -73,8 +74,8 @@ export function setAttributes(dest, atts, src, cb, prefix) {
 
 /**
  * Delivers a attribute value for a given attribute name
- * @param {object} object to query
- * @param {object} atts attribute definitions to be used
+ * @param {Object} object to query
+ * @param {Object} atts attribute definitions to be used
  * @param {string} path attribute name
  * @return {Any} attribute value
  */
@@ -91,10 +92,10 @@ export function getAttribute(object, atts, path) {
 
 /**
  * Retrive attribute values from an object
- * @param {object} object attribute value source
- * @param {object} attributes
- * @param {object} options
- * @return {object} values
+ * @param {Object} object attribute value source
+ * @param {Object} attributes
+ * @param {Object} options
+ * @return {Object} values
  */
 export function getAttributes(object, atts, options = {}) {
   const result = {};
@@ -111,8 +112,8 @@ export function getAttributes(object, atts, options = {}) {
 
 /**
  * Create attributes from its definition
- * @param {object} definitions
- * @return {object} attributes
+ * @param {Object} definitions
+ * @return {Object} attributes
  */
 export function createAttributes(definitions) {
   Object.keys(definitions).forEach(name => {
@@ -127,9 +128,9 @@ export function createAttributes(definitions) {
 
 /**
  * Merge attribute definitions
- * @param {object} dest attribute definitions to be used also the merge target
- * @param {object} atts attribute definitions to be used
- * @return {object} merged definitions (dest)
+ * @param {Object} dest attribute definitions to be used also the merge target
+ * @param {Object} atts attribute definitions to be used
+ * @return {Object} merged definitions (dest)
  */
 export function mergeAttributes(dest, atts) {
   Object.keys(atts).forEach(name => {
@@ -146,5 +147,3 @@ export function mergeAttributes(dest, atts) {
 
   return Object.assign(dest, atts);
 }
-
-export { getType };

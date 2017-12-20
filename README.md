@@ -37,7 +37,7 @@ console.log(object.att1); // value1
 console.log(object.att2); // 2
 ```
 
-# API Reference
+# API
 - model-attributes
 
 * <a name="module_model-attributes..setAttributes"></a>
@@ -45,7 +45,7 @@ console.log(object.att2); // 2
 ## model-attributes~setAttributes(dest, atts, src, cb, prefix) ⇒ <code>undefined</code>
 Copies attribute values from a source object into a destination object.
 
-**Kind**: inner method of <code>[model-attributes](#module_model-attributes)</code>  
+**Kind**: inner method of <code>[model-attributes](#module_model-attributes)</code>
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -61,8 +61,8 @@ Copies attribute values from a source object into a destination object.
 ## model-attributes~getAttribute(object, atts, path) ⇒ <code>Any</code>
 Delivers a attribute value for a given attribute name
 
-**Kind**: inner method of <code>[model-attributes](#module_model-attributes)</code>  
-**Returns**: <code>Any</code> - attribute value  
+**Kind**: inner method of <code>[model-attributes](#module_model-attributes)</code>
+**Returns**: <code>Any</code> - attribute value
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -76,8 +76,8 @@ Delivers a attribute value for a given attribute name
 ## model-attributes~getAttributes(object, attributes, options) ⇒ <code>object</code>
 Retrive attribute values from an object
 
-**Kind**: inner method of <code>[model-attributes](#module_model-attributes)</code>  
-**Returns**: <code>object</code> - values  
+**Kind**: inner method of <code>[model-attributes](#module_model-attributes)</code>
+**Returns**: <code>object</code> - values
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -91,12 +91,12 @@ Retrive attribute values from an object
 ## model-attributes~createAttributes(definitions) ⇒ <code>object</code>
 Create attributes from its definition
 
-**Kind**: inner method of <code>[model-attributes](#module_model-attributes)</code>  
-**Returns**: <code>object</code> - attributes  
+**Kind**: inner method of <code>[model-attributes](#module_model-attributes)</code>
+**Returns**: <code>object</code> - attributes
 
 | Param | Type |
 | --- | --- |
-| definitions | <code>object</code> | 
+| definitions | <code>object</code> |
 
 
 * <a name="module_model-attributes..mergeAttributes"></a>
@@ -104,8 +104,8 @@ Create attributes from its definition
 ## model-attributes~mergeAttributes(dest, atts) ⇒ <code>object</code>
 Merge attribute definitions
 
-**Kind**: inner method of <code>[model-attributes](#module_model-attributes)</code>  
-**Returns**: <code>object</code> - merged definitions (dest)  
+**Kind**: inner method of <code>[model-attributes](#module_model-attributes)</code>
+**Returns**: <code>object</code> - merged definitions (dest)
 
 | Param | Type | Description |
 | --- | --- | --- |
