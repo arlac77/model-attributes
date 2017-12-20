@@ -97,11 +97,11 @@ export function getAttribute(object, atts, path) {
  * @param {Object} options
  * @return {Object} values
  */
-export function getAttributes(object, atts, options = {}) {
+export function getAttributes(object, attributes, options = {}) {
   const result = {};
 
-  Object.keys(atts).forEach(name => {
-    const value = getAttribute(object, atts, name);
+  Object.keys(attributes).forEach(name => {
+    const value = getAttribute(object, attributes, name);
     if (value !== undefined) {
       result[name] = value;
     }
