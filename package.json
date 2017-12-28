@@ -1,47 +1,14 @@
 {
   "name": "model-attributes",
   "version": "0.0.0-semantic-release",
+  "main": "dist/attributes.js",
+  "module": "src/attributes.js",
   "description": "attribute meta description",
   "keywords": [
     "meta",
     "attribute",
     "model"
   ],
-  "main": "dist/attributes.js",
-  "module": "src/attributes.js",
-  "scripts": {
-    "cover": "nyc --temp-directory build/nyc ava",
-    "test": "ava",
-    "docs": "documentation readme src/attributes.js --section=API",
-    "semantic-release": "semantic-release",
-    "pretest": "rollup -c tests/rollup.config.js",
-    "posttest": "npm run prepare && markdown-doctest",
-    "precover": "rollup -c tests/rollup.config.js",
-    "prepare": "rollup -c",
-    "lint": "documentation lint src/attributes.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/arlac77/model-attributes.git"
-  },
-  "bugs": {
-    "url": "https://github.com/arlac77/model-attributes/issues"
-  },
-  "homepage": "https://github.com/arlac77/model-attributes#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "cracks": "3.1.2",
-    "markdown-doctest": "^0.9.1",
-    "nyc": "^11.4.1",
-    "rollup": "^0.53.0",
-    "semantic-release": "^11.1.0",
-    "ava": "^0.24.0",
-    "xo": "^0.19.0",
-    "documentation": "^5.3.5"
-  },
-  "release": {
-    "verifyRelease": "cracks"
-  },
   "contributors": [
     {
       "name": "Torsten Link",
@@ -53,8 +20,49 @@
     }
   ],
   "license": "BSD-2-Clause",
+  "scripts": {
+    "cover": "nyc --temp-directory build/nyc ava",
+    "test": "ava",
+    "docs": "documentation readme src/attributes.js --section=API",
+    "semantic-release": "semantic-release",
+    "pretest": "rollup -c tests/rollup.config.js",
+    "posttest": "npm run prepare && markdown-doctest",
+    "precover": "rollup -c tests/rollup.config.js",
+    "prepare": "rollup -c",
+    "lint": "documentation lint src/attributes.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "cracks": "3.1.2",
+    "markdown-doctest": "^0.9.1",
+    "nyc": "^11.4.1",
+    "rollup": "^0.53.0",
+    "semantic-release": "^11.1.0",
+    "ava": "^0.24.0",
+    "xo": "^0.19.0",
+    "documentation": "^5.3.5"
+  },
   "engines": {
     "node": ">=8.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arlac77/model-attributes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arlac77/model-attributes/issues"
+  },
+  "homepage": "https://github.com/arlac77/model-attributes#readme",
+  "release": {
+    "verifyRelease": "cracks"
+  },
+  "ava": {
+    "files": [
+      "build/*-test.js"
+    ],
+    "require": [
+      "babel-register"
+    ]
   },
   "nyc": {
     "include": [
@@ -66,20 +74,12 @@
     ],
     "report-dir": "./build/coverage"
   },
+  "xo": {
+    "space": true
+  },
   "template": {
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template.git"
     }
-  },
-  "xo": {
-    "space": true
-  },
-  "ava": {
-    "files": [
-      "build/*-test.js"
-    ],
-    "require": [
-      "babel-register"
-    ]
   }
 }
