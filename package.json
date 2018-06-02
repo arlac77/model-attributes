@@ -1,6 +1,9 @@
 {
   "name": "model-attributes",
   "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/attributes.js",
   "module": "src/attributes.js",
   "description": "attribute meta description",
