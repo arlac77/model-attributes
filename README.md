@@ -45,10 +45,15 @@ console.log(object.att2); // 2
 
 -   [model-attributes](#model-attributes)
 -   [setAttributes](#setattributes)
+    -   [Parameters](#parameters)
 -   [getAttribute](#getattribute)
+    -   [Parameters](#parameters-1)
 -   [getAttributes](#getattributes)
+    -   [Parameters](#parameters-2)
 -   [createAttributes](#createattributes)
+    -   [Parameters](#parameters-3)
 -   [mergeAttributes](#mergeattributes)
+    -   [Parameters](#parameters-4)
 
 ## model-attributes
 
@@ -56,7 +61,7 @@ console.log(object.att2); // 2
 
 Copies attribute values from a source object into a destination object.
 
-**Parameters**
+### Parameters
 
 -   `dest` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** target object to be modified
 -   `atts` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** attribute definitions to be used
@@ -70,7 +75,7 @@ Returns **[undefined](https://developer.mozilla.org/docs/Web/JavaScript/Referenc
 
 Delivers a attribute value for a given attribute name
 
-**Parameters**
+### Parameters
 
 -   `object` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** to query
 -   `atts` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** attribute definitions to be used
@@ -82,7 +87,7 @@ Returns **Any** attribute value
 
 Retrive attribute values from an object
 
-**Parameters**
+### Parameters
 
 -   `object` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** attribute value source
 -   `attributes` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
@@ -94,7 +99,7 @@ Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 
 Create attributes from its definition
 
-**Parameters**
+### Parameters
 
 -   `definitions` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
@@ -104,7 +109,7 @@ Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 
 Merge attribute definitions
 
-**Parameters**
+### Parameters
 
 -   `dest` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** attribute definitions to be used also the merge target
 -   `atts` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** attribute definitions to be used
