@@ -12,6 +12,7 @@ export default {
   output: {
     file: 'build/attributes-test.js',
     format: 'cjs',
-    sourcemap: true
+    sourcemap: true,
+    interop: false
   }
 };
