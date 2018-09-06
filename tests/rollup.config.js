@@ -1,18 +1,23 @@
-import istanbul from 'rollup-plugin-istanbul';
+import multiEntry from "rollup-plugin-multi-entry";
+import resolve from "rollup-plugin-node-resolve";
+import commonjs from "rollup-plugin-commonjs";
+import istanbul from "rollup-plugin-istanbul";
 
-import multiEntry from 'rollup-plugin-multi-entry';
-import commonjs from 'rollup-plugin-commonjs';
-import resolve from 'rollup-plugin-node-resolve';
 export default {
-  input: 'tests/attributes-test.js',
-  external: ['ava'],
-  plugins: [multiEntry(), istanbul({
-    exclude: ['tests/**/*-test.js']
-  }), resolve(), commonjs()],
+  input: "tests/**/*-test.js",
   output: {
-    file: 'build/attributes-test.js',
-    format: 'cjs',
+    file: "build/bundle-test.js",
+    format: "cjs",
     sourcemap: true,
     interop: false
-  }
+  },
+  external: ["ava"],
+  plugins: [
+    multiEntry(),
+    resolve(),
+    commonjs(),
+    istanbul({
+      exclude: ["tests/**/*-test.js", "node_modules/**/*"]
+    })
+  ]
 };
