@@ -34,7 +34,6 @@
   "devDependencies": {
     "ava": "^1.2.1",
     "c8": "^3.4.0",
-    "cracks": "3.1.2",
     "documentation": "^9.1.1",
     "esm": "^3.2.4",
     "markdown-doctest": "^0.9.1",
@@ -51,9 +50,6 @@
     "url": "https://github.com/arlac77/model-attributes/issues"
   },
   "homepage": "https://github.com/arlac77/model-attributes#readme",
-  "_release": {
-    "verifyRelease": "cracks"
-  },
   "ava": {
     "files": [
       "tests/*-test.js",
@@ -73,5 +69,8 @@
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template-esm-only.git"
     }
+  },
+  "_release": {
+    "verifyRelease": "cracks"
   }
 }
