@@ -4,8 +4,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/attributes.js",
-  "module": "src/attributes.js",
+  "main": "src/attributes.mjs",
+  "module": "src/attributes.mjs",
   "description": "attribute meta description",
   "keywords": [
     "meta",
@@ -25,10 +25,9 @@
   "license": "BSD-2-Clause",
   "scripts": {
     "cover": "c8 --temp-directory build/coverage ava && c8 report -r lcov --temp-directory build/coverage",
-    "docs": "documentation readme src/attributes.js --section=API",
-    "lint": "documentation lint src/attributes.js",
-    "posttest": "markdown-doctest && npm run prepare",
-    "pretest": "rollup -c tests/rollup.config.js",
+    "docs": "documentation readme src/attributes.mjs --section=API",
+    "lint": "documentation lint src/attributes.mjs",
+    "posttest": "markdown-doctest",
     "test": "ava"
   },
   "dependencies": {},
@@ -52,7 +51,7 @@
     "url": "https://github.com/arlac77/model-attributes/issues"
   },
   "homepage": "https://github.com/arlac77/model-attributes#readme",
-  "release": {
+  "_release": {
     "verifyRelease": "cracks"
   },
   "ava": {

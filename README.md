@@ -19,8 +19,10 @@
 
 attribute meta description
 
+<!-- skip-example -->
+
 ```javascript
-const ma = require('model-attributes');
+const { createAttributes } from 'model-attributes';
 
 const attributes = ma.createAttributes({
   att1: {},
