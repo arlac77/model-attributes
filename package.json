@@ -72,5 +72,6 @@
   },
   "_release": {
     "verifyRelease": "cracks"
-  }
+  },
+  "type": "module"
 }
