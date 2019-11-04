@@ -51,6 +51,11 @@ DeclareType('ip-port', {
   maxValue: 65535
 });
 
+DeclareType('listen-socket', {
+  parent: 'string',
+  description: 'IPC listen address',
+});
+
 DeclareType('url', {
   parent: 'string'
 });
