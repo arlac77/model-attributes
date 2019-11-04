@@ -2,7 +2,7 @@
  * @module model-attributes
  */
 
-import { getType } from './types';
+import { getType } from './types.mjs';
 export { getType };
 
 function _setAttributes(

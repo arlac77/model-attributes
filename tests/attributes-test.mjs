@@ -7,7 +7,7 @@ import {
   setAttributes,
   getAttribute,
   getAttributes
-} from '../src/attributes';
+} from '../src/attributes.mjs';
 
 const md = createAttributes({
   att1: {},
