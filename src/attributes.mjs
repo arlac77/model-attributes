@@ -19,7 +19,7 @@ function _setAttributes(
         // TODO create default
         if (Object.keys(ca.attributes).length === 0) {
           dest[name] = src[name];
-          return;
+          continue;
         }
         dest[name] = {};
       }
@@ -31,7 +31,7 @@ function _setAttributes(
         cb,
         prefix + name + "."
       );
-      return;
+      continue;
     }
 
     const value = src[name];
@@ -64,7 +64,7 @@ function _setAttributes(
  * @param {Object} src origin of the data to be copied
  * @param {function} cb callback to be executed for each copied value
  * @param {string} prefix name prefix used for all attributes
- * @return {undefined}
+ * @return {void}
  */
 export function setAttributes(dest, atts, src, cb, prefix) {
   _setAttributes(dest, dest, atts, src, cb, prefix);
