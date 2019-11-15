@@ -2,7 +2,7 @@
  * @module model-attributes
  */
 
-import { getType } from './types.mjs';
+import { getType } from "./types.mjs";
 export { getType };
 
 function _setAttributes(
@@ -11,11 +11,9 @@ function _setAttributes(
   atts,
   src = {},
   cb = (ca, path, value) => {},
-  prefix = ''
+  prefix = ""
 ) {
-  Object.keys(atts).forEach(name => {
-    const ca = atts[name];
-
+  for (const [name, ca] of Object.entries(atts)) {
     if (ca.attributes !== undefined) {
       if (dest[name] === undefined) {
         // TODO create default
@@ -31,7 +29,7 @@ function _setAttributes(
         ca.attributes,
         src[name],
         cb,
-        prefix + name + '.'
+        prefix + name + "."
       );
       return;
     }
@@ -56,7 +54,7 @@ function _setAttributes(
         }
       }
     }
-  });
+  }
 }
 
 /**
@@ -97,7 +95,7 @@ export function getAttribute(object, atts, path) {
  * @param {Object} options
  * @return {Object} values
  */
-export function getAttributes(object, attributes, options = {}) {
+export function getAttributes(object, attributes, options) {
   const result = {};
 
   Object.keys(attributes).forEach(name => {
@@ -116,13 +114,12 @@ export function getAttributes(object, attributes, options = {}) {
  * @return {Object} attributes
  */
 export function createAttributes(definitions) {
-  Object.keys(definitions).forEach(name => {
-    const d = definitions[name];
+  for (const [name, d] of Object.entries(definitions)) {
     d.name = name;
     if (d.attributes === undefined) {
-      d.type = getType(d.type) || getType('base');
+      d.type = getType(d.type) || getType("base");
     }
-  });
+  }
   return definitions;
 }
 
@@ -133,9 +130,7 @@ export function createAttributes(definitions) {
  * @return {Object} merged definitions (dest)
  */
 export function mergeAttributes(dest, atts) {
-  Object.keys(atts).forEach(name => {
-    const ca = atts[name];
-
+  for (const [name, ca] of Object.entries(atts)) {
     if (ca.attributes !== undefined) {
       const bn = dest[name];
 
@@ -143,7 +138,7 @@ export function mergeAttributes(dest, atts) {
         Object.assign(ca.attributes, bn.attributes);
       }
     }
-  });
+  }
 
   return Object.assign(dest, atts);
 }
