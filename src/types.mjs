@@ -33,16 +33,21 @@ DeclareType('boolean', {
 });
 
 DeclareType('number', {
-  parent: 'base'
+  parent: 'base',
+  minValue: -Number.MAX_VALUE,
+  maxValue: Number.MAX_VALUE
 });
 
 DeclareType('integer', {
-  parent: 'number'
+  parent: 'number',
+  minValue: Number.MIN_SAFE_INTEGER,
+  maxValue: Number.MAX_SAFE_INTEGER
 });
 
 DeclareType('unsigned-integer', {
   parent: 'integer',
-  minValue: 0
+  minValue: 0,
+  maxValue: Number.MAX_SAFE_INTEGER
 });
 
 DeclareType('ip-port', {

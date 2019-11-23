@@ -10,7 +10,10 @@ import {
 } from '../src/attributes.mjs';
 
 const md = createAttributes({
-  att1: {},
+  att1: {
+    mandatory: true,
+    private: true
+  },
   att2: {
     type: 'string',
     setter(value) {
@@ -36,9 +39,12 @@ const md = createAttributes({
 });
 
 test('has name', t => t.is(md.att1.name, 'att1'));
+test('has mandatory', t => t.true(md.att1.mandatory));
+test('has private', t => t.true(md.att1.private));
 test('has default type', t => t.is(md.att1.type, getType('base')));
 test('has given type', t => t.is(md.att2.type, getType('string')));
-test('has given type attributes', t => t.is(md.att3.type.minValue, 0));
+test('has given type attributes min value', t => t.is(md.att3.type.minValue, 0));
+test('has given type attributes max value', t => t.is(md.att3.type.maxValue, Number.MAX_SAFE_INTEGER));
 test('has given type name', t => t.is(md.att3.type.name, 'unsigned-integer'));
 
 test('merge attributes', t => {
