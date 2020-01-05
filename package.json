@@ -1,4 +1,7 @@
 {
+  "_release": {
+    "verifyRelease": "cracks"
+  },
   "name": "model-attributes",
   "version": "0.0.0-semantic-release",
   "publishConfig": {
@@ -70,8 +73,5 @@
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template-esm-only.git"
     }
-  },
-  "_release": {
-    "verifyRelease": "cracks"
   }
 }
