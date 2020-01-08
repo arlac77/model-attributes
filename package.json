@@ -30,7 +30,8 @@
     "docs": "documentation readme src/attributes.mjs --section=API",
     "lint": "documentation lint src/attributes.mjs",
     "posttest": "markdown-doctest",
-    "test": "ava"
+    "test": "ava",
+    "prepare": "rollup -c"
   },
   "devDependencies": {
     "ava": "^2.4.0",
