@@ -8,7 +8,8 @@
   "type": "module",
   "main": "src/attributes.mjs",
   "exports": {
-    ".": "./src/attributes.mjs"
+    ".": "./src/attributes.mjs",
+    "./": "./"
   },
   "description": "attribute meta description",
   "keywords": [
