@@ -40,7 +40,6 @@ const md = createAttributes({
 
 test("has name", t => t.is(md.att1.name, "att1"));
 
-
 test("has mandatory", t => t.true(md.att1.mandatory));
 test("has private", t => t.true(md.att1.private));
 test("has default type", t => t.is(md.att1.type, getType("base")));
@@ -168,32 +167,57 @@ test("set with setter", t => {
   t.is(object.att2x, "value2");
 });
 
-test("get simple", t => {
-  const object = {
+function gat(t, object, def, key, expected) {
+  t.is(getAttribute(object, def, key), expected);
+}
+
+gat.title = (providedTitle = "", object, def, key, expected) =>
+  `getAttribute ${providedTitle} ${JSON.stringify(
+    object
+  )} ${key} ${JSON.stringify(def)}`.trim();
+
+function gats(t, object, def, expected) {
+  t.deepEqual(getAttributes(object, def), expected);
+}
+
+gats.title = (providedTitle = "", object, def, expected) =>
+  `getAttributes ${providedTitle} ${JSON.stringify(object)} ${JSON.stringify(
+    def
+  )}`.trim();
+
+test(
+  "simple",
+  gat,
+  {
     att1: "value1",
     att2x: "value2"
-  };
+  },
+  md,
+  "att1",
+  "value1"
+);
 
-  t.is(getAttribute(object, md, "att1"), "value1");
-});
-
-test("get with getter", t => {
-  const object = {
+test(
+  "with getter",
+  gat,
+  {
     att1: "value1",
     att2x: "value2"
-  };
+  },
+  md,
+  "att2",
+  "value2"
+);
 
-  t.is(getAttribute(object, md, "att2"), "value2");
-});
-
-test("get multiple", t => {
-  const object = {
+test(
+  gats,
+  {
     att1: "value1",
     att2x: "value2"
-  };
-
-  t.deepEqual(getAttributes(object, md), {
+  },
+  md,
+  {
     att1: "value1",
     att2: "value2"
-  });
-});
+  }
+);
