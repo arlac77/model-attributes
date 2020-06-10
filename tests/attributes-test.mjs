@@ -1,4 +1,4 @@
-import test from 'ava';
+import test from "ava";
 
 import {
   getType,
@@ -7,7 +7,7 @@ import {
   setAttributes,
   getAttribute,
   getAttributes
-} from '../src/attributes.mjs';
+} from "model-attributes";
 
 const md = createAttributes({
   att1: {
@@ -15,7 +15,7 @@ const md = createAttributes({
     private: true
   },
   att2: {
-    type: 'string',
+    type: "string",
     setter(value) {
       this.att2x = value;
       return true;
@@ -25,65 +25,69 @@ const md = createAttributes({
     }
   },
   att3: {
-    type: 'unsigned-integer',
+    type: "unsigned-integer",
     default: 77
   },
   nested: {
     attributes: {
       att1: {
-        type: 'string',
-        default: 'the default'
+        type: "string",
+        default: "the default"
       }
     }
   }
 });
 
-test('has name', t => t.is(md.att1.name, 'att1'));
-test('has mandatory', t => t.true(md.att1.mandatory));
-test('has private', t => t.true(md.att1.private));
-test('has default type', t => t.is(md.att1.type, getType('base')));
-test('has given type', t => t.is(md.att2.type, getType('string')));
-test('has given type attributes min value', t => t.is(md.att3.type.minValue, 0));
-test('has given type attributes max value', t => t.is(md.att3.type.maxValue, Number.MAX_SAFE_INTEGER));
-test('has given type name', t => t.is(md.att3.type.name, 'unsigned-integer'));
+test("has name", t => t.is(md.att1.name, "att1"));
 
-test('merge attributes', t => {
+
+test("has mandatory", t => t.true(md.att1.mandatory));
+test("has private", t => t.true(md.att1.private));
+test("has default type", t => t.is(md.att1.type, getType("base")));
+test("has given type", t => t.is(md.att2.type, getType("string")));
+test("has given type attributes min value", t =>
+  t.is(md.att3.type.minValue, 0));
+test("has given type attributes max value", t =>
+  t.is(md.att3.type.maxValue, Number.MAX_SAFE_INTEGER));
+test("has given type name", t => t.is(md.att3.type.name, "unsigned-integer"));
+
+test("merge attributes", t => {
   const md2 = createAttributes({
     nested: {
       attributes: {
         att2: {
-          type: 'string',
-          default: 'the default'
+          type: "string",
+          default: "the default"
         }
       }
     }
   });
   const ma = mergeAttributes(md2, md);
-  t.deepEqual(Object.keys(ma.nested.attributes), ['att1', 'att2']);
+  t.deepEqual(Object.keys(ma.nested.attributes), ["att1", "att2"]);
 });
 
-test('set simple', t => {
+test("set simple", t => {
   const object = {};
 
   setAttributes(object, md, {
-    att1: 'value1'
+    att1: "value1"
   });
 
-  t.is(object.att1, 'value1');
+  t.is(object.att1, "value1");
   t.is(object.att3, 77);
 });
 
-test('set unknown', t => {
+test("set unknown", t => {
   const object = {};
 
   setAttributes(object, md, {
-    att7: 'value1'
+    att7: "value1"
   });
 
   t.is(object.att7, undefined);
 });
 
-test('set with defaults', t => {
+test("set with defaults", t => {
   const object = {};
 
   setAttributes(object, md, {
@@ -93,7 +97,7 @@ test('set with defaults', t => {
   t.is(object.att3, 17);
 });
 
-test('set use default', t => {
+test("set use default", t => {
   const object = {};
 
   setAttributes(object, md, {
@@ -103,7 +107,7 @@ test('set use default', t => {
   t.is(object.att3, 77);
 });
 
-test('set keep old value', t => {
+test("set keep old value", t => {
   const object = {
     att3: 4711
   };
@@ -113,27 +117,27 @@ test('set keep old value', t => {
   t.is(object.att3, 4711);
 });
 
-test('set nested simple', t => {
+test("set nested simple", t => {
   const object = {};
 
   setAttributes(object, md, {
     nested: {
-      att1: 'value1'
+      att1: "value1"
     }
   });
 
-  t.is(object.nested.att1, 'value1');
+  t.is(object.nested.att1, "value1");
 });
 
-test('set nested default', t => {
+test("set nested default", t => {
   const object = {};
 
   setAttributes(object, md, {});
 
-  t.is(object.nested.att1, 'the default');
+  t.is(object.nested.att1, "the default");
 });
 
-test('set nested empty', t => {
+test("set nested empty", t => {
   const md = createAttributes({
     data: {
       attributes: {}
@@ -154,42 +158,42 @@ test('set nested empty', t => {
   });
 });
 
-test('set with setter', t => {
+test("set with setter", t => {
   const object = {};
 
   setAttributes(object, md, {
-    att2: 'value2'
+    att2: "value2"
   });
 
-  t.is(object.att2x, 'value2');
+  t.is(object.att2x, "value2");
 });
 
-test('get simple', t => {
+test("get simple", t => {
   const object = {
-    att1: 'value1',
-    att2x: 'value2'
+    att1: "value1",
+    att2x: "value2"
   };
 
-  t.is(getAttribute(object, md, 'att1'), 'value1');
+  t.is(getAttribute(object, md, "att1"), "value1");
 });
 
-test('get with getter', t => {
+test("get with getter", t => {
   const object = {
-    att1: 'value1',
-    att2x: 'value2'
+    att1: "value1",
+    att2x: "value2"
   };
 
-  t.is(getAttribute(object, md, 'att2'), 'value2');
+  t.is(getAttribute(object, md, "att2"), "value2");
 });
 
-test('get multiple', t => {
+test("get multiple", t => {
   const object = {
-    att1: 'value1',
-    att2x: 'value2'
+    att1: "value1",
+    att2x: "value2"
   };
 
   t.deepEqual(getAttributes(object, md), {
-    att1: 'value1',
-    att2: 'value2'
+    att1: "value1",
+    att2: "value2"
   });
 });

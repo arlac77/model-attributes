@@ -1,7 +1,3 @@
-/**
- * @module model-attributes
- */
-
 import { getType } from "./types.mjs";
 export { getType };
 
