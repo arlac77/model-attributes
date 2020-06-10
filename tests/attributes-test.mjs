@@ -1,12 +1,11 @@
 import test from "ava";
+import { gat, gast } from "./helper/util.mjs";
 
 import {
   getType,
   createAttributes,
   mergeAttributes,
-  setAttributes,
-  getAttribute,
-  getAttributes
+  setAttributes
 } from "model-attributes";
 
 const md = createAttributes({
@@ -167,23 +166,6 @@ test("set with setter", t => {
   t.is(object.att2x, "value2");
 });
 
-function gat(t, object, def, key, expected) {
-  t.is(getAttribute(object, def, key), expected);
-}
-
-gat.title = (providedTitle = "", object, def, key, expected) =>
-  `getAttribute ${providedTitle} ${JSON.stringify(
-    object
-  )} ${key} ${JSON.stringify(def)}`.trim();
-
-function gats(t, object, def, expected) {
-  t.deepEqual(getAttributes(object, def), expected);
-}
-
-gats.title = (providedTitle = "", object, def, expected) =>
-  `getAttributes ${providedTitle} ${JSON.stringify(object)} ${JSON.stringify(
-    def
-  )}`.trim();
 
 test(
   "simple",
@@ -210,7 +192,7 @@ test(
 );
 
 test(
-  gats,
+  gast,
   {
     att1: "value1",
     att2x: "value2"
