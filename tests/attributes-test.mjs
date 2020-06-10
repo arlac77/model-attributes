@@ -1,12 +1,7 @@
 import test from "ava";
-import { gat, gast } from "./helper/util.mjs";
+import { sast, gat, gast } from "./helper/util.mjs";
 
-import {
-  getType,
-  createAttributes,
-  mergeAttributes,
-  setAttributes
-} from "model-attributes";
+import { getType, createAttributes, mergeAttributes } from "model-attributes";
 
 const md = createAttributes({
   att1: {
@@ -64,108 +59,76 @@ test("merge attributes", t => {
   t.deepEqual(Object.keys(ma.nested.attributes), ["att1", "att2"]);
 });
 
-test("set simple", t => {
-  const object = {};
-
-  setAttributes(object, md, {
-    att1: "value1"
-  });
-
+test(sast, {}, md, { att1: "value1" }, (t, object) => {
   t.is(object.att1, "value1");
   t.is(object.att3, 77);
 });
 
-test("set unknown", t => {
-  const object = {};
+test("unknown key", sast, {}, md, { att7: "value1" }, (t, object) =>
+  t.is(object.att7, undefined)
+);
 
-  setAttributes(object, md, {
-    att7: "value1"
-  });
+test("with defaults", sast, {}, md, { att3: 17 }, (t, object) =>
+  t.is(object.att3, 17)
+);
 
-  t.is(object.att7, undefined);
-});
+test("use default", sast, {}, md, { att1: 17 }, (t, object) =>
+  t.is(object.att3, 77)
+);
 
-test("set with defaults", t => {
-  const object = {};
+test("keep old value", sast, { att3: 4711 }, md, {}, (t, object) =>
+  t.is(object.att3, 4711)
+);
 
-  setAttributes(object, md, {
-    att3: 17
-  });
-
-  t.is(object.att3, 17);
-});
-
-test("set use default", t => {
-  const object = {};
-
-  setAttributes(object, md, {
-    att1: 17
-  });
-
-  t.is(object.att3, 77);
-});
-
-test("set keep old value", t => {
-  const object = {
-    att3: 4711
-  };
-
-  setAttributes(object, md, {});
-
-  t.is(object.att3, 4711);
-});
-
-test("set nested simple", t => {
-  const object = {};
-
-  setAttributes(object, md, {
+test(
+  "nested simple",
+  sast,
+  {},
+  md,
+  {
     nested: {
       att1: "value1"
     }
-  });
+  },
+  (t, object) => t.is(object.nested.att1, "value1")
+);
 
-  t.is(object.nested.att1, "value1");
-});
-
-test("set nested default", t => {
-  const object = {};
-
-  setAttributes(object, md, {});
-
+test("nested default", sast, {}, md, {}, (t, object) => {
   t.is(object.nested.att1, "the default");
 });
 
-test("set nested empty", t => {
-  const md = createAttributes({
+test(
+  "nested empty",
+  sast,
+  {},
+  createAttributes({
     data: {
       attributes: {}
     }
-  });
-  const object = {};
-
-  setAttributes(object, md, {
+  }),
+  {
     data: {
       a: 1,
       b: 2
     }
-  });
+  },
+  (t, object) =>
+    t.deepEqual(object.data, {
+      a: 1,
+      b: 2
+    })
+);
 
-  t.deepEqual(object.data, {
-    a: 1,
-    b: 2
-  });
-});
-
-test("set with setter", t => {
-  const object = {};
-
-  setAttributes(object, md, {
+test(
+  "with setter",
+  sast,
+  {},
+  md,
+  {
     att2: "value2"
-  });
-
-  t.is(object.att2x, "value2");
-});
-
+  },
+  (t, object) => t.is(object.att2x, "value2")
+);
 
 test(
   "simple",
