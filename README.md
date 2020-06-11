@@ -41,7 +41,6 @@ console.log(object.att2); // 2
 
 ### Table of Contents
 
--   [model-attributes](#model-attributes)
 -   [setAttributes](#setattributes)
     -   [Parameters](#parameters)
 -   [getAttribute](#getattribute)
@@ -52,8 +51,6 @@ console.log(object.att2); // 2
     -   [Parameters](#parameters-3)
 -   [mergeAttributes](#mergeattributes)
     -   [Parameters](#parameters-4)
-
-## model-attributes
 
 ## setAttributes
 
@@ -67,7 +64,7 @@ Copies attribute values from a source object into a destination object.
 -   `cb` **[function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** callback to be executed for each copied value
 -   `prefix` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** name prefix used for all attributes
 
-Returns **[undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined)** 
+Returns **void** 
 
 ## getAttribute
 
@@ -89,7 +86,7 @@ Retrive attribute values from an object
 
 -   `object` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** attribute value source
 -   `attributes` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
--   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**  (optional, default `{}`)
+-   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
 Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** values
 
