@@ -1,7 +1,4 @@
 import {
-  getType,
-  createAttributes,
-  mergeAttributes,
   setAttributes,
   getAttribute,
   getAttributes
