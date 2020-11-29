@@ -5,12 +5,12 @@ export function DeclareType(name, options) {
 
   types[name] = Object.assign(options, options.parent);
 
-  Object.defineProperty(options, 'name', {
+  Object.defineProperty(options, "name", {
     value: name
   });
 }
 
-DeclareType('base', {
+DeclareType("base", {
   parse(string, offset) {
     return [undefined, offset];
   },
@@ -19,65 +19,70 @@ DeclareType('base', {
   }
 });
 
-DeclareType('blob', {
-  parent: 'base',
-  description: 'raw bytes'
+DeclareType("blob", {
+  parent: "base",
+  description: "raw bytes"
 });
 
-DeclareType('string', {
-  parent: 'base'
+DeclareType("string", {
+  parent: "base"
 });
 
-DeclareType('boolean', {
-  parent: 'base'
+DeclareType("boolean", {
+  parent: "base"
 });
 
-DeclareType('number', {
-  parent: 'base',
+DeclareType("number", {
+  parent: "base",
   minValue: -Number.MAX_VALUE,
   maxValue: Number.MAX_VALUE
 });
 
-DeclareType('integer', {
-  parent: 'number',
+DeclareType("integer", {
+  parent: "number",
   minValue: Number.MIN_SAFE_INTEGER,
   maxValue: Number.MAX_SAFE_INTEGER
 });
 
-DeclareType('unsigned-integer', {
-  parent: 'integer',
+DeclareType("unsigned-integer", {
+  parent: "integer",
   minValue: 0,
   maxValue: Number.MAX_SAFE_INTEGER
 });
 
-DeclareType('ip-port', {
-  parent: 'unsigned-integer',
-  description: 'ip port number',
+DeclareType("ip-port", {
+  parent: "unsigned-integer",
+  description: "ip port number",
   maxValue: 65535
 });
 
-DeclareType('listen-socket', {
-  parent: 'string',
-  description: 'IPC listen address',
+DeclareType("listen-socket", {
+  parent: "string",
+  description: "IPC listen address"
 });
 
-DeclareType('url', {
-  parent: 'string'
+DeclareType("url", {
+  parent: "string"
 });
 
-DeclareType('hostname', {
-  parent: 'string',
-  description: 'fully qualified host name'
+DeclareType("password", {
+  parent: "string",
+  private: true
 });
 
-DeclareType('posix-path', {
-  parent: 'string',
-  description: 'posix filesystem path'
+DeclareType("hostname", {
+  parent: "string",
+  description: "fully qualified host name"
 });
 
-DeclareType('duration', {
-  parent: 'number',
-  description: 'time duration in seconds',
+DeclareType("posix-path", {
+  parent: "string",
+  description: "posix filesystem path"
+});
+
+DeclareType("duration", {
+  parent: "number",
+  description: "time duration in seconds",
   parse(string, offset) {
     return [parseFloat(string), offset];
   },

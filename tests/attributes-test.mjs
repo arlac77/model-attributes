@@ -22,6 +22,9 @@ const md = createAttributes({
     type: "unsigned-integer",
     default: 77
   },
+  att4: {
+    type: "password"
+  },
   nested: {
     attributes: {
       att1: {
@@ -36,6 +39,7 @@ test("has name", t => t.is(md.att1.name, "att1"));
 
 test("has mandatory", t => t.true(md.att1.mandatory));
 test("has private", t => t.true(md.att1.private));
+test.skip("has inherited private", t => t.true(md.att4.private));
 test("has default type", t => t.is(md.att1.type, getType("base")));
 test("has given type", t => t.is(md.att2.type, getType("string")));
 test("has given type attributes min value", t =>
