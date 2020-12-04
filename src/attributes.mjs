@@ -85,13 +85,12 @@ export function getAttribute(object, atts, path) {
 }
 
 /**
- * Retrive attribute values from an object
+ * Retrive attribute values from an object.
  * @param {Object} object attribute value source
  * @param {Object} attributes
- * @param {Object} options
  * @return {Object} values
  */
-export function getAttributes(object, attributes, options) {
+export function getAttributes(object, attributes) {
   const result = {};
 
   Object.keys(attributes).forEach(name => {
@@ -105,7 +104,7 @@ export function getAttributes(object, attributes, options) {
 }
 
 /**
- * Create attributes from its definition
+ * Create attributes from its definition.
  * @param {Object} definitions
  * @return {Object} attributes
  */
@@ -120,7 +119,7 @@ export function createAttributes(definitions) {
 }
 
 /**
- * Merge attribute definitions
+ * Merge attribute definitions.
  * @param {Object} dest attribute definitions to be used also the merge target
  * @param {Object} atts attribute definitions to be used
  * @return {Object} merged definitions (dest)
