@@ -74,19 +74,18 @@ Returns **Any** attribute value
 
 ## getAttributes
 
-Retrive attribute values from an object
+Retrive attribute values from an object.
 
 ### Parameters
 
 -   `object` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** attribute value source
 -   `attributes` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
--   `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
 Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** values
 
 ## createAttributes
 
-Create attributes from its definition
+Create attributes from its definition.
 
 ### Parameters
 
@@ -96,7 +95,7 @@ Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 
 ## mergeAttributes
 
-Merge attribute definitions
+Merge attribute definitions.
 
 ### Parameters
 
