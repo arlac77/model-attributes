@@ -1,6 +1,6 @@
 [![npm](https://img.shields.io/npm/v/model-attributes.svg)](https://www.npmjs.com/package/model-attributes)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![minified size](https://badgen.net/bundlephobia/min/model-attributes)](https://bundlephobia.com/result?p=model-attributes)
+[![Open Bundle](https://bundlejs.com/badge-light.svg)](https://bundlejs.com/?q=model-attributes)
 [![downloads](http://img.shields.io/npm/dm/model-attributes.svg?style=flat-square)](https://npmjs.org/package/model-attributes)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/model-attributes.svg?style=flat-square)](https://github.com/arlac77/model-attributes/issues)
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Farlac77%2Fmodel-attributes%2Fbadge\&style=flat)](https://actions-badge.atrox.dev/arlac77/model-attributes/goto)
