@@ -62,7 +62,7 @@ Copies attribute values from a source object into a destination object.
 *   `cb` **[function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** callback to be executed for each copied value
 *   `prefix` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** name prefix used for all attributes
 
-Returns **void** 
+Returns **void**&#x20;
 
 ## getAttribute
 
@@ -83,7 +83,7 @@ Retrive attribute values from an object.
 ### Parameters
 
 *   `object` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** attribute value source
-*   `attributes` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+*   `attributes` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**&#x20;
 
 Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** values
 
@@ -93,7 +93,7 @@ Create attributes from its definition.
 
 ### Parameters
 
-*   `definitions` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+*   `definitions` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**&#x20;
 
 Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** attributes
 
