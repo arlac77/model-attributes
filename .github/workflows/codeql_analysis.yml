@@ -19,9 +19,9 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: javascript
-      - uses: actions/setup-node@v4.0.2
+      - uses: actions/setup-node@v4.0.3
         with:
-          node-version: 22.4.0
+          node-version: 22.4.1
           cache: npm
       - run: npm ci
       - name: Perform CodeQL Analysis
