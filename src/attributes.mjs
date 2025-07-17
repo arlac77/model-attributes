@@ -118,6 +118,10 @@ export function createAttributes(definitions) {
   return definitions;
 }
 
+export function prepareAttributesDefinitions(definitions) {
+  return createAttributes(definitions);
+}
+
 /**
  * Merge attribute definitions.
  * @param {Object} dest attribute definitions to be used also the merge target
@@ -136,4 +140,8 @@ export function mergeAttributes(dest, atts) {
   }
 
   return Object.assign(dest, atts);
+}
+
+export function mergeAttributeDefinitions(dest, atts) {
+  return mergeAttributes(dest, atts);
 }
