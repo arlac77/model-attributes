@@ -10,7 +10,7 @@ const md = createAttributes({
   },
   att2: {
     type: "string",
-    setter(value) {
+    set(value) {
       this.att2x = value;
       return true;
     },

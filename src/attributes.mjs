@@ -32,8 +32,8 @@ function _setAttributes(
 
     const value = src[name];
 
-    if (ca.setter !== undefined) {
-      if (ca.setter.call(object, value, ca)) {
+    if (ca.set !== undefined) {
+      if (ca.set.call(object, value, ca)) {
         cb(ca, prefix + name, value || ca.default);
       }
     } else {
