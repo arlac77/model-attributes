@@ -1,13 +1,8 @@
 const types = {};
 
 export function DeclareType(name, options) {
-  //const parent = types[options.parent] || types.base;
-
+  options.name = name;
   types[name] = Object.assign(options, options.parent);
-
-  Object.defineProperty(options, "name", {
-    value: name
-  });
 }
 
 DeclareType("base", {
